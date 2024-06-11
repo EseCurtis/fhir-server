@@ -15,8 +15,8 @@ app.get('/', (req: Request, res: Response) => {
   const config: OAuthConfig = {
     clientId: '04974aca-a8dd-449f-905e-8a64c75b8724',
     tokenEndpoint: 'https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token',
-    privateKeyPath: './keys2/privatekey.pem',
-    publicKeyPath: './keys2/publickey509.pem',
+    privateKeyPath: './src/keys2/privatekey.pem',
+    publicKeyPath: './src/keys2/publickey509.pem',
     jwtAlgorithm: 'RS384',
   };
 
@@ -35,7 +35,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.get('/.well-known/jwks.json', (req, res) => {
-  const jwk = JSON.parse(fs.readFileSync(path.join(__dirname, 'keys2/public.jwk'), 'utf8'));
+  const jwk = JSON.parse(fs.readFileSync(path.join(__dirname, 'src/keys2/public.jwk'), 'utf8'));
   res.json({ keys: [jwk] });
 });
 
