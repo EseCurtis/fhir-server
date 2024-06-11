@@ -1,8 +1,8 @@
-import express, { Request, Response } from 'express';
-import dotenv from 'dotenv';
-import OAuthClient, { OAuthConfig } from 'classes/FHIR/OAuthClient';
 import fs from 'fs';
 import path from 'path';
+import dotenv from 'dotenv';
+import express, { Request, Response } from 'express';
+import OAuthClient, { OAuthConfig } from '@/classes/FHIR/OAuthClient';
 
 dotenv.config();
 
@@ -31,7 +31,7 @@ app.get('/', (req: Request, res: Response) => {
       console.error('Error:', error);
       res.send('ERROR OH');
     });
-  
+
 });
 
 app.get('/.well-known/jwks.json', (req, res) => {
