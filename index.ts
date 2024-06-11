@@ -13,10 +13,10 @@ app.get('/', (req: Request, res: Response) => {
   // Example usage:
   // Create an instance of the OAuthClient class with appropriate configuration
   const config: OAuthConfig = {
-    clientId: '04974aca-a8dd-449f-905e-8a64c75b8724',
+    clientId: '2ec07d66-337f-4f62-b5a1-ae33815087bf',
     tokenEndpoint: 'https://fhir.epic.com/interconnect-fhir-oauth/oauth2/token',
-    privateKeyPath: './src/keys2/privatekey.pem',
-    publicKeyPath: './src/keys2/publickey509.pem',
+    privateKeyPath: 'src/keys2/privatekey.pem',
+    publicKeyPath: 'src/keys2/publickey509.pem',
     jwtAlgorithm: 'RS384',
   };
 
@@ -25,7 +25,7 @@ app.get('/', (req: Request, res: Response) => {
   oauthClient.getAccessToken()
     .then(token => {
       console.log('Access token:', token);
-      res.send('Express + TypeScript Server');
+      res.send(token);
     })
     .catch(error => {
       console.error('Error:', error);
